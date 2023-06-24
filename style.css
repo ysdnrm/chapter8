@@ -1,0 +1,60 @@
+/* ブラウザがそれぞれ持っているCSSをリセットするための記述 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*全体でまとめる*/
+main {
+  width: 960px;
+  margin: 50px auto;
+}
+
+/*リスト領域とボックス領域の間の余白*/
+.list {
+  margin-bottom: 50px;
+}
+
+.list-item {
+  list-style: none;
+  padding: 20px;/*リスト行内の余白*/
+
+}
+
+/*リストの奇数のみ色つき*/
+.list-item:nth-child(odd) {
+  background-color: #eee;
+}
+
+/*ボックスを折り返して並べる*/
+.box-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/*一度全てのボックスを作成（色はまだ同じ）（余白も同じ）*/
+.box {
+  background-color: yellow;/*ボックスの色*/
+  width: 30%;/*ボックスの幅*/
+  height: 200px;/*ボックスの高さ*/
+  margin-right: 5%;/*ボックス外の右の余白*/
+  margin-bottom: 40px;/*ボックス外の下の余白*/
+}
+
+/*ボックスの最初、５番目、最後のみ適用*/
+.box:first-child,
+.box:nth-child(5),
+.box:last-child {
+  background-color: orange;
+}
+
+/*３の倍数のボックスのみ適用*/
+.box:nth-child(3n) {
+  margin-right: 0;/*ボックス外の右の余白なし*/
+}
+
+/*最後から数えて、３番目より前のボックスのみ適用（最後の３つ）*/
+.box:nth-last-child(-n+3) {
+  margin-bottom: 0;/*ボックス外の下の余白なし*/
+}
